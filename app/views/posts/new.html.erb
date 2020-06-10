@@ -1,0 +1,9 @@
+<h4>Tweet Page</h4>
+
+<%= form_tag("/create") do %>
+    <div class="form-group">
+        <%= label_tag current_user.name%>, <%= "What's happening?" %>
+        <%= text_area :posts, :body, class:"form-control", :size => "10x10" %>
+    </div>
+    <%= submit_tag "Post", class:"btn btn-primary" %>
+<% end %>
