@@ -7,5 +7,12 @@ Rails.application.routes.draw do
   post "/create", to:"posts#create"
   get "/users/sign_out", to:"tweets#logout"
   get "/users/:id", to:"users#user_page"
-  delete "/tweets/:id", to:"users#destroy"
+  delete "/posts/:id", to:"users#destroy"
+  get "/posts/:id", to:"posts#show"
+
+  resources :users
+  resources :posts, only: [:index, :show, :new, :create] do
+    resources :comments, only: [:create, :destroy]
+  end
+
 end

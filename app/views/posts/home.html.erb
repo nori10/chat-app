@@ -6,12 +6,12 @@
                 <%= post.user.name %>
             </div>
             <div class="panel-body">
-                <a href="/posts/<%=post.id%>"><%= post.body %></a>
+                <%= post.body %>
             </div>
 
             <div class="panel-footer">
                 <div class="buttons">
-                    <a href="/"><span class="glyphicon glyphicon-comment"></span></a>
+                    <a href="/posts/<%=post.id%>"><span class="glyphicon glyphicon-comment"></span></a>
                 </div>
             </div>
     </div>
