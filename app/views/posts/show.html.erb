@@ -1,6 +1,9 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <%= @post.user.name %>
+        <div class="post_time">
+            <%= @post.created_at.strftime('%m/%d %H:%M') %>
+        </div>
      </div>
     <div class="panel-body">
         <%= @post.body %>
@@ -16,7 +19,7 @@
     <hr>
     <% if user_signed_in? %>
         <div class="comment-create">
-            <h4 class="text-left">Your Comment</h4>
+            <h5 class="text-left">comment to <%= @post.user.name%>'s post</h5>
             <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
         </div>
     <% end %>

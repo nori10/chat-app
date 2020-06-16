@@ -5,6 +5,9 @@
 
             <div class="panel-heading">
                 <%= post.user.name %>
+                <div class="post_time">
+                    <%= post.created_at.strftime('%m/%d %H:%M') %>
+                </div>
             </div>
             <div class="panel-body">
                 <%= post.body %>

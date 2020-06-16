@@ -22,22 +22,20 @@
         <a class="navbar-brand" href="/">Chat App</a>
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-        </ul>
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-          
-          <li><a href="/new"><span class="glyphicon glyphicon-pencil"></span></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <div class="logout">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-          </div>
-        </ul>
-      </div><!-- /.navbar-collapse -->
+      <% if user_signed_in? %>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li><a href="/users/<%= current_user.id %>"><span class="glyphicon glyphicon-user"></span></li><li><a href="/new"><span class="glyphicon glyphicon-pencil"></span></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <div class="logout">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </div>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      <% end %>
     </div><!-- /.container-fluid -->
   </nav>
 
